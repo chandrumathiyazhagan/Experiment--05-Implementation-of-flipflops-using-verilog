@@ -107,34 +107,99 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: M.Chandru
+RegisterNumber: 22008631
 
+```
+SR FLIPFLOP:
 
+module sr(s,r,clk,Q,Qbar);
+input s,r,Clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,s,Clk);
+nand (Y,r,Clk);
+nand (Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
 
+D FLIPFLOP:
 
+module df(D,Clock,Q,Qbar);
+input D,Clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand (X,D,Clock);
+nand (Y,Dbar,Clock);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
 
+JK FLIPFLOP:
+
+module jk(J,K,clk,Q,Qbar);
+input J,K,clk;
+output Q,Qbar;
+wire P,S;
+nand (P,J,clk,Qbar);
+nand (S,K,clk,Q);
+nand (Q,P,Qbar);
+nand (Qbar,S,Q);
+endmodule
+
+T FLIPFLOP:
+
+module TF (T,Clock,Q,Qbar);
+input T,Clock;
+output Q,Qbar;
+wire A,B;
+nand (A,T,Clock,Qbar);
+nand (B,T,Clock,Q);
+nand (Q,A,Qbar);
+nand (Qbar,B,Q);
+endmodule
+```
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+SR FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901814-48c333f8-f147-44e8-b744-4dc90b197364.png)
 
+D FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901825-ddcd0a6b-cfd1-4d78-a91c-c89111f93ecd.png)
 
+JK FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901834-5a3fa545-15eb-4cb1-84e4-c638b5a20cbf.png)
 
+T FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901843-7be1d606-4c7c-4e82-b5f7-ecc6229bc3f7.png)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
 
+SR FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901849-22d03884-d2c8-4728-ba35-fb95f911565c.png)
 
+D FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901854-6d6e4041-599b-4746-b7a2-7602950590f1.png)
 
+JK FLIP FLOP:
 
+![image](https://user-images.githubusercontent.com/119393023/213901869-d6e330f6-26e2-4c16-a686-87dbd4f96da5.png)
+
+T FLIP FLOP:
+
+![image](https://user-images.githubusercontent.com/119393023/213901877-248a382f-0d4b-4303-a504-e40e24a8c2a7.png)
 
 
 ### RESULTS 
+
+All the flipflops are implementde using verilog and their functionality has been validated using their functional tables.
